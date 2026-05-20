@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: 'Starter Brand',
-  shortName: 'Starter',
-  description: 'Reusable Astro starter for modern business websites.',
+  name: 'Анна Смирнова',
+  shortName: 'Анна Смирнова',
+  description: 'Фотограф индивидуальных, семейных и love story съёмок.',
   locale: 'ru',
   ogLocale: 'ru_RU',
   url: 'https://example.com',
@@ -9,39 +9,32 @@ export const siteConfig = {
 
   contacts: {
     email: 'hello@example.com',
-    phone: '+7 000 000-00-00',
-    address: 'Город, улица',
-    // Replace with a real Yandex Maps search URL, e.g.:
-    // 'https://yandex.ru/maps/?text=Москва%2C+Пречистенка+1'
-    addressMapsHref: 'https://yandex.ru/maps/?text=Город%2C+улица',
-    telegram: 'about:blank',
-    whatsapp: 'about:blank',
-    instagram: 'about:blank',
-    vk: 'about:blank',
+    phone: '+7 999 000-00-00',
+    telegram: 'https://t.me/example',
+    whatsapp: 'https://wa.me/79999999999',
+    instagram: 'https://instagram.com/example',
   },
 
   nav: [
-    { label: 'О нас',    href: '/#about' },
-    { label: 'Услуги',   href: '/#services' },
-    { label: 'Кейсы',    href: '/#items' },
-    { label: 'Процесс',  href: '/#process' },
-    { label: 'Команда',  href: '/#team' },
-    { label: 'Контакты', href: '/#contacts' },
+    { label: 'Обо мне',   href: '/#about' },
+    { label: 'Услуги',    href: '/#services' },
+    { label: 'Портфолио', href: '/#portfolio' },
+    { label: 'Отзывы',   href: '/#reviews' },
+    { label: 'Контакты',  href: '/#contacts' },
   ],
 
   cta: {
-    label: 'Обсудить проект',
+    label: 'Записаться',
     href: '/#contacts',
   },
 
   forms: {
     contactEndpoint: '/.netlify/functions/contact',
-    source: 'Starter Brand',
+    source: 'Anna Smirnova Photography',
   },
 
   footer: {
-    tagline: 'Современный сайт для вашего бизнеса. Быстрый, адаптивный и SEO-готовый.',
-    ctaText: 'Расскажите о своей задаче — обсудим формат и первые шаги.',
+    tagline: 'Фотограф индивидуальных, семейных и love story съёмок.',
     privacyHref: 'about:blank',
   },
 
