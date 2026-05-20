@@ -27,7 +27,7 @@ import Icon from '../ui/Icon.astro';
       <div class="flex gap-3">
         {siteConfig.contacts.telegram && <a href={siteConfig.contacts.telegram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Telegram"><Icon name="telegram" size={17} /></a>}
         {siteConfig.contacts.whatsapp && <a href={siteConfig.contacts.whatsapp} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="WhatsApp"><Icon name="whatsapp" size={17} /></a>}
-        {siteConfig.contacts.instagram && <a href={siteConfig.contacts.instagram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Instagram"><Icon name="instagram" size={17} /></a>}
+        {siteConfig.contacts.instagram && <a href={siteConfig.contacts.instagram} class="footer-social-icon footer-ig-text" target="_blank" rel="noreferrer" aria-label="Instagram*">IG</a>}
         {siteConfig.contacts.max && <a href={siteConfig.contacts.max} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Max"><Icon name="max" size={17} /></a>}
         {siteConfig.contacts.email && <a href={`mailto:${siteConfig.contacts.email}`} class="footer-social-icon" aria-label="Email"><Icon name="email" size={17} /></a>}
       </div>
@@ -40,12 +40,17 @@ import Icon from '../ui/Icon.astro';
       </p>
       <a
         href={siteConfig.footer.privacyHref}
-        class="text-xs footer-social"
+        class="text-xs footer-link-bottom"
         style="color: rgba(244,244,240,0.25);"
       >
         Политика конфиденциальности
       </a>
     </div>
+
+    <!-- Legal disclaimer -->
+    <p class="text-[10px] leading-relaxed mt-6" style="color: rgba(244,244,240,0.28); max-width: 56ch;">
+      *Instagram принадлежит компании Meta Platforms Inc., деятельность которой признана экстремистской и запрещена на территории РФ.
+    </p>
 
   </div>
 </footer>
@@ -67,10 +72,15 @@ import Icon from '../ui/Icon.astro';
     color: #f4f4f0;
     background-color: rgba(244, 244, 240, 0.06);
   }
-  .footer-social {
+  .footer-ig-text {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .footer-link-bottom {
     transition: color 200ms ease;
   }
-  .footer-social:hover {
-    color: rgba(244, 244, 240, 0.70);
+  .footer-link-bottom:hover {
+    color: rgba(244, 244, 240, 0.70) !important;
   }
 </style>

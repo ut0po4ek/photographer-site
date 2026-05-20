@@ -42,9 +42,9 @@ const shootTypes = [
             <span class="contact-icon"><Icon name="whatsapp" /></span>
             <span>WhatsApp</span>
           </a>
-          <a href={siteConfig.contacts.instagram} class="contact-link flex items-center gap-4" target="_blank" rel="noreferrer" aria-label="Instagram">
-            <span class="contact-icon"><Icon name="instagram" /></span>
-            <span>Instagram</span>
+          <a href={siteConfig.contacts.instagram} class="contact-link flex items-center gap-4" target="_blank" rel="noreferrer" aria-label="Instagram*">
+            <span class="contact-icon contact-icon--text">IG</span>
+            <span>IG*</span>
           </a>
           {siteConfig.contacts.max && (
             <a href={siteConfig.contacts.max} class="contact-link flex items-center gap-4" target="_blank" rel="noreferrer" aria-label="Max">
@@ -157,6 +157,11 @@ const shootTypes = [
   .contact-link:hover .contact-icon {
     border-color: rgba(244,244,240,0.55);
     color: #f4f4f0;
+  }
+  .contact-icon--text {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
   }
 </style>
 

@@ -17,6 +17,10 @@ const {
   canonical = Astro.url.href,
   jsonLd,
 } = Astro.props;
+
+const siteUrl = `${siteConfig.url}/`;
+const canonicalUrl = new URL(canonical, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
 ---
 
 <!doctype html>
@@ -28,14 +32,14 @@ const {
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content={siteConfig.ogLocale} />
     <meta property="og:site_name" content={siteConfig.name} />
 
@@ -43,7 +47,7 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- Structured Data -->
     {jsonLd && (
