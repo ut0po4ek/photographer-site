@@ -1,0 +1,25 @@
+---
+interface Props {
+  variant?: 'white' | 'black' | 'color';
+  size?: number;
+  class?: string;
+}
+
+const { variant = 'white', size = 18, class: className = '' } = Astro.props;
+
+const src =
+  variant === 'black' ? '/icons/max-logo-black.svg' :
+  variant === 'color' ? '/icons/max-color.svg' :
+  '/icons/max-logo-white.svg';
+---
+
+<img
+  src={src}
+  alt="Max"
+  width={size}
+  height={size}
+  class={className}
+  aria-hidden="true"
+  loading="lazy"
+  decoding="async"
+/>
