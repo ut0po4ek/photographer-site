@@ -34,66 +34,6 @@ const navLinks = siteConfig.nav;
           {siteConfig.cta.label}
         </a>
 
-        <!-- Theme switcher -->
-        <div class="theme-switcher relative">
-          <button
-            id="theme-btn"
-            class="theme-btn w-10 h-10 flex items-center justify-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-            aria-label="Тема оформления"
-            aria-expanded="false"
-            aria-haspopup="true"
-            title="Переключить тему"
-          >
-            <!-- Sun icon (light) -->
-            <svg class="theme-icon-light hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-            <!-- Moon icon (dark) -->
-            <svg class="theme-icon-dark hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-            <!-- Monitor icon (system) -->
-            <svg class="theme-icon-system hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-            </svg>
-          </button>
-
-          <!-- Dropdown menu -->
-          <div
-            id="theme-menu"
-            role="menu"
-            aria-label="Выбор темы"
-            class="theme-menu absolute right-0 top-full mt-2 hidden"
-          >
-            <button role="menuitem" data-theme-option="light" class="theme-menu-item flex items-center gap-3 w-full px-4 py-2.5 text-xs font-medium tracking-widest uppercase text-left">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <circle cx="12" cy="12" r="5"/>
-                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-              </svg>
-              Светлая
-            </button>
-            <button role="menuitem" data-theme-option="dark" class="theme-menu-item flex items-center gap-3 w-full px-4 py-2.5 text-xs font-medium tracking-widest uppercase text-left">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-              </svg>
-              Тёмная
-            </button>
-            <button role="menuitem" data-theme-option="system" class="theme-menu-item flex items-center gap-3 w-full px-4 py-2.5 text-xs font-medium tracking-widest uppercase text-left">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-              Системная
-            </button>
-          </div>
-        </div>
-
         <button
           id="burger-btn"
           class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded-sm"
@@ -142,21 +82,6 @@ const navLinks = siteConfig.nav;
       </a>
     ))}
 
-      <!-- Mobile theme switcher -->
-      <div class="mobile-theme-switcher flex flex-wrap gap-3 pt-4">
-        <button data-mobile-theme="light" class="mobile-theme-btn flex items-center gap-2 px-4 py-3 text-xs font-medium tracking-widest uppercase border border-[#3a3630] text-[var(--color-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]" aria-label="Светлая тема">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          Светлая
-        </button>
-        <button data-mobile-theme="dark" class="mobile-theme-btn flex items-center gap-2 px-4 py-3 text-xs font-medium tracking-widest uppercase border border-[#3a3630] text-[var(--color-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]" aria-label="Тёмная тема">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          Тёмная
-        </button>
-        <button data-mobile-theme="system" class="mobile-theme-btn flex items-center gap-2 px-4 py-3 text-xs font-medium tracking-widest uppercase border border-[#3a3630] text-[var(--color-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]" aria-label="Системная тема">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          Системная
-        </button>
-      </div>
   </nav>
 
   <div class="mt-12">
@@ -308,124 +233,10 @@ const navLinks = siteConfig.nav;
     transform: translateY(0);
   }
 
-  /* ─── Theme button ───────────────────────────────── */
-  .theme-btn {
-    color: var(--h-text-m);
-    transition: color 200ms ease, opacity 200ms ease;
-  }
-  .theme-btn:hover { color: var(--h-text); opacity: 0.9; }
-
-  /* ─── Theme dropdown menu ────────────────────────── */
-  .theme-menu {
-    min-width: 10rem;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    z-index: 100;
-  }
-  .theme-menu-item {
-    color: var(--color-fg-muted);
-    transition: background-color 150ms ease, color 150ms ease;
-  }
-  .theme-menu-item:hover,
-  .theme-menu-item:focus {
-    background-color: var(--color-bg-warm);
-    color: var(--color-fg);
-    outline: none;
-  }
-  .theme-menu-item[data-active="true"] {
-    color: var(--color-accent);
-    background-color: var(--color-bg-warm);
-  }
-
-  .theme-menu-item:focus:not([data-active="true"]) {
-    background-color: var(--color-bg-warm);
-    color: var(--color-fg);
-  }
-
-  /* ─── Mobile theme switcher ──────────────────────── */
-  .mobile-theme-btn {
-    transition: border-color 200ms ease, background-color 200ms ease;
-  }
-  .mobile-theme-btn[data-active="true"] {
-    border-color: var(--color-bg);
-    background-color: rgba(255,255,255,0.08);
-  }
-  .mobile-theme-btn:hover {
-    border-color: var(--color-accent);
-  }
 </style>
 
 <script>
-  type ThemePreference = 'light' | 'dark' | 'system';
-
-  const STORAGE_KEY = 'starter-theme';
-  const VALID_PREFS: ThemePreference[] = ['light', 'dark', 'system'];
   let menuOpen = false;
-  let themeMenuOpen = false;
-
-  function getThemePreference(): ThemePreference {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY) as ThemePreference | null;
-      return saved && VALID_PREFS.includes(saved) ? saved : 'system';
-    } catch {
-      return 'system';
-    }
-  }
-
-  function resolveTheme(preference: ThemePreference): 'light' | 'dark' {
-    if (preference === 'system') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    return preference;
-  }
-
-  function syncTheme(preference = getThemePreference(), persist = false, animate = false) {
-    if (!VALID_PREFS.includes(preference)) preference = 'system';
-    if (persist) {
-      try { localStorage.setItem(STORAGE_KEY, preference); } catch { /* Safari private mode */ }
-    }
-    if (animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.documentElement.classList.add('theme-transitioning');
-      window.setTimeout(() => document.documentElement.classList.remove('theme-transitioning'), 300);
-    }
-    document.documentElement.dataset.theme = resolveTheme(preference);
-    document.documentElement.dataset.themePreference = preference;
-    updateThemeUI(preference);
-  }
-
-  function updateThemeUI(preference = getThemePreference()) {
-    document.querySelectorAll<HTMLElement>('.theme-icon-light, .theme-icon-dark, .theme-icon-system').forEach(icon => {
-      icon.classList.add('hidden');
-    });
-    document.querySelector<HTMLElement>(`.theme-icon-${preference}`)?.classList.remove('hidden');
-    document.querySelectorAll<HTMLElement>('.theme-menu-item').forEach(btn => {
-      btn.dataset.active = String(btn.dataset.themeOption === preference);
-    });
-    document.querySelectorAll<HTMLElement>('.mobile-theme-btn').forEach(btn => {
-      btn.dataset.active = String(btn.dataset.mobileTheme === preference);
-    });
-  }
-
-  function closeThemeMenu() {
-    const themeButton = document.getElementById('theme-btn');
-    const themeMenu = document.getElementById('theme-menu');
-    themeMenuOpen = false;
-    themeMenu?.classList.add('hidden');
-    themeButton?.setAttribute('aria-expanded', 'false');
-  }
-
-  function openThemeMenu() {
-    const themeButton = document.getElementById('theme-btn');
-    const themeMenu = document.getElementById('theme-menu');
-    if (!themeButton || !themeMenu) return;
-    themeMenuOpen = true;
-    themeMenu.classList.remove('hidden');
-    themeButton.setAttribute('aria-expanded', 'true');
-    const activeItem = themeMenu.querySelector<HTMLElement>('[data-active="true"]')
-      ?? themeMenu.querySelector<HTMLElement>('[role="menuitem"]');
-    activeItem?.focus();
-  }
 
   function resolveHeaderState() {
     const header = document.getElementById('site-header');
@@ -436,120 +247,58 @@ const navLinks = siteConfig.nav;
   }
 
   function closeMobileMenu() {
-    const burgerButton = document.getElementById('burger-btn');
+    const burgerBtn = document.getElementById('burger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     menuOpen = false;
     mobileMenu?.classList.remove('is-open');
     mobileMenu?.setAttribute('aria-hidden', 'true');
-    burgerButton?.setAttribute('aria-expanded', 'false');
+    burgerBtn?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
 
   function openMobileMenu() {
-    const burgerButton = document.getElementById('burger-btn');
+    const burgerBtn = document.getElementById('burger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    if (!burgerButton || !mobileMenu) return;
+    if (!burgerBtn || !mobileMenu) return;
     menuOpen = true;
     mobileMenu.classList.add('is-open');
     mobileMenu.setAttribute('aria-hidden', 'false');
-    burgerButton.setAttribute('aria-expanded', 'true');
+    burgerBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
 
-  function initHeaderState() {
+  function initHeader() {
     resolveHeaderState();
-    if (document.documentElement.dataset.headerScrollBound === 'true') return;
-    document.documentElement.dataset.headerScrollBound = 'true';
-    window.addEventListener('scroll', resolveHeaderState, { passive: true });
-  }
-
-  function initMobileMenu() {
-    const burgerButton = document.getElementById('burger-btn');
-    const closeButton = document.getElementById('close-menu');
+    if (document.documentElement.dataset.headerScrollBound !== 'true') {
+      document.documentElement.dataset.headerScrollBound = 'true';
+      window.addEventListener('scroll', resolveHeaderState, { passive: true });
+    }
+    const burgerBtn = document.getElementById('burger-btn');
+    const closeBtn = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
-
-    if (burgerButton && burgerButton.dataset.menuBound !== 'true') {
-      burgerButton.dataset.menuBound = 'true';
-      burgerButton.addEventListener('click', () => { menuOpen ? closeMobileMenu() : openMobileMenu(); });
+    if (burgerBtn && !burgerBtn.dataset.bound) {
+      burgerBtn.dataset.bound = 'true';
+      burgerBtn.addEventListener('click', () => menuOpen ? closeMobileMenu() : openMobileMenu());
     }
-    if (closeButton && closeButton.dataset.menuBound !== 'true') {
-      closeButton.dataset.menuBound = 'true';
-      closeButton.addEventListener('click', closeMobileMenu);
+    if (closeBtn && !closeBtn.dataset.bound) {
+      closeBtn.dataset.bound = 'true';
+      closeBtn.addEventListener('click', closeMobileMenu);
     }
-    mobileMenu?.querySelectorAll<HTMLElement>('[data-close-menu]').forEach(link => {
-      if (link.dataset.menuBound === 'true') return;
-      link.dataset.menuBound = 'true';
+    mobileMenu?.querySelectorAll('[data-close-menu]').forEach(link => {
+      if ((link as HTMLElement).dataset.bound) return;
+      (link as HTMLElement).dataset.bound = 'true';
       link.addEventListener('click', closeMobileMenu);
     });
-    if (document.documentElement.dataset.mobileMenuKeyBound !== 'true') {
-      document.documentElement.dataset.mobileMenuKeyBound = 'true';
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && menuOpen) closeMobileMenu();
-      });
+    if (!document.documentElement.dataset.escBound) {
+      document.documentElement.dataset.escBound = 'true';
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menuOpen) closeMobileMenu(); });
     }
-  }
-
-  function initThemeSwitcher() {
-    syncTheme(getThemePreference(), false, false);
-    const themeButton = document.getElementById('theme-btn');
-    const themeMenu = document.getElementById('theme-menu');
-
-    if (themeButton && themeButton.dataset.themeBound !== 'true') {
-      themeButton.dataset.themeBound = 'true';
-      themeButton.addEventListener('click', () => { themeMenuOpen ? closeThemeMenu() : openThemeMenu(); });
-    }
-    if (themeMenu && themeMenu.dataset.themeBound !== 'true') {
-      themeMenu.dataset.themeBound = 'true';
-      themeMenu.addEventListener('keydown', (event: KeyboardEvent) => {
-        const items = Array.from(themeMenu.querySelectorAll<HTMLElement>('[role="menuitem"]'));
-        const current = document.activeElement as HTMLElement;
-        const index = items.indexOf(current);
-        if (event.key === 'ArrowDown') { event.preventDefault(); items[(index + 1) % items.length]?.focus(); }
-        else if (event.key === 'ArrowUp') { event.preventDefault(); items[(index - 1 + items.length) % items.length]?.focus(); }
-        else if (event.key === 'Escape') { event.preventDefault(); closeThemeMenu(); themeButton?.focus(); }
-      });
-    }
-    themeMenu?.querySelectorAll<HTMLElement>('[data-theme-option]').forEach(btn => {
-      if (btn.dataset.themeBound === 'true') return;
-      btn.dataset.themeBound = 'true';
-      btn.addEventListener('click', () => { syncTheme(btn.dataset.themeOption as ThemePreference, true, true); closeThemeMenu(); });
-    });
-    document.querySelectorAll<HTMLElement>('[data-mobile-theme]').forEach(btn => {
-      if (btn.dataset.themeBound === 'true') return;
-      btn.dataset.themeBound = 'true';
-      btn.addEventListener('click', () => { syncTheme(btn.dataset.mobileTheme as ThemePreference, true, true); });
-    });
-    if (document.documentElement.dataset.themeOutsideBound !== 'true') {
-      document.documentElement.dataset.themeOutsideBound = 'true';
-      document.addEventListener('click', (event) => {
-        if (!themeMenuOpen) return;
-        const btn = document.getElementById('theme-btn');
-        const menu = document.getElementById('theme-menu');
-        if (btn && menu && !btn.contains(event.target as Node) && !menu.contains(event.target as Node)) closeThemeMenu();
-      });
-    }
-    if (document.documentElement.dataset.themeOsBound !== 'true') {
-      document.documentElement.dataset.themeOsBound = 'true';
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-        if (getThemePreference() === 'system') syncTheme('system', false, true);
-      });
-    }
-  }
-
-  function initHeaderChrome() {
-    initHeaderState();
-    initMobileMenu();
-    initThemeSwitcher();
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHeaderChrome, { once: true });
+    document.addEventListener('DOMContentLoaded', initHeader, { once: true });
   } else {
-    initHeaderChrome();
+    initHeader();
   }
-
-  if (document.documentElement.dataset.headerPageLoadBound !== 'true') {
-    document.documentElement.dataset.headerPageLoadBound = 'true';
-    document.addEventListener('astro:page-load', initHeaderChrome);
-  }
+  document.addEventListener('astro:page-load', initHeader);
 </script>
