@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../../config/site';
+import Icon from '../ui/Icon.astro';
 ---
 
 <footer style="background: #0d0d0d;">
@@ -23,10 +24,10 @@ import { siteConfig } from '../../config/site';
         </p>
       </div>
 
-      <div class="flex gap-6" style="color: rgba(244,244,240,0.38);">
-        <a href={siteConfig.contacts.telegram} class="footer-social text-xs tracking-widest uppercase" target="_blank" rel="noreferrer" aria-label="Telegram">TG</a>
-        <a href={siteConfig.contacts.whatsapp} class="footer-social text-xs tracking-widest uppercase" target="_blank" rel="noreferrer" aria-label="WhatsApp">WA</a>
-        <a href={siteConfig.contacts.instagram} class="footer-social text-xs tracking-widest uppercase" target="_blank" rel="noreferrer" aria-label="Instagram">IG</a>
+      <div class="flex gap-4" style="color: rgba(244,244,240,0.38);">
+        <a href={siteConfig.contacts.telegram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Telegram"><Icon name="telegram" size={18} /></a>
+        <a href={siteConfig.contacts.whatsapp} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="WhatsApp"><Icon name="whatsapp" size={18} /></a>
+        <a href={siteConfig.contacts.instagram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Instagram"><Icon name="instagram" size={18} /></a>
       </div>
     </div>
 
@@ -48,6 +49,14 @@ import { siteConfig } from '../../config/site';
 </footer>
 
 <style>
+  .footer-social-icon {
+    color: rgba(244, 244, 240, 0.38);
+    display: inline-flex;
+    transition: color 200ms ease;
+  }
+  .footer-social-icon:hover {
+    color: rgba(244, 244, 240, 0.80);
+  }
   .footer-social {
     transition: color 200ms ease;
   }
