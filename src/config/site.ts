@@ -4,7 +4,7 @@ export const siteConfig = {
   description: 'Фотограф индивидуальных, семейных и love story съёмок.',
   locale: 'ru',
   ogLocale: 'ru_RU',
-  url: (import.meta.env.PUBLIC_SITE_URL ?? 'https://example.com').replace(/\/$/, ''),
+  url: 'https://example.com',
   year: new Date().getFullYear(),
 
   contacts: {
@@ -40,6 +40,6 @@ export const siteConfig = {
   },
 
   seo: {
-    ogImage: '/og-image.jpg',
+    ogImage: '/social-preview.jpg',
   },
 };
