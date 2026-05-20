@@ -1,0 +1,429 @@
+---
+import Button from '../ui/Button.astro';
+import TextField from '../ui/TextField.astro';
+import PhoneField from '../ui/PhoneField.astro';
+import DatePicker from '../ui/DatePicker.astro';
+import CustomSelect from '../ui/CustomSelect.astro';
+import TextareaField from '../ui/TextareaField.astro';
+import Icon from '../ui/Icon.astro';
+import { siteConfig } from '../../config/site';
+
+const projectTypes = [
+  { value: 'consulting', label: 'Консультация' },
+  { value: 'development', label: 'Разработка' },
+  { value: 'support', label: 'Сопровождение' },
+  { value: 'other', label: 'Другое' },
+];
+---
+
+<section id="contacts" class="section-padding bg-[var(--color-bg)]">
+  <div class="container-site">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+      <!-- Left -->
+      <div>
+        <span class="label-tag reveal">Контакты</span>
+        <div class="divider my-4 reveal reveal-delay-1"></div>
+        <h2 class="mt-6 mb-6 reveal reveal-delay-2" style="font-size: clamp(1.5rem, 3.5vw, 2.75rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.15;">
+          Оставьте заявку
+        </h2>
+        <p class="text-[var(--color-fg-muted)] text-base leading-relaxed mb-10 reveal reveal-delay-3">
+          Расскажите о своей задаче. Мы ответим в течение рабочего дня и предложим удобный формат первой встречи.
+        </p>
+
+        <div class="contact-direct reveal reveal-delay-4">
+          <h3 class="contact-direct-title">Связаться напрямую</h3>
+          <div class="contact-direct-list">
+            <a href={`tel:${siteConfig.contacts.phone.replace(/[\s\-()]/g, '')}`} class="contact-direct-link">
+              <span class="contact-direct-icon"><Icon name="phone" /></span>
+              <span>{siteConfig.contacts.phone}</span>
+            </a>
+            <a href={`mailto:${siteConfig.contacts.email}`} class="contact-direct-link">
+              <span class="contact-direct-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <polyline points="2,4 12,13 22,4"/>
+                </svg>
+              </span>
+              <span>{siteConfig.contacts.email}</span>
+            </a>
+          </div>
+          <div class="contact-socials" aria-label="Социальные сети и мессенджеры">
+            {siteConfig.contacts.telegram && siteConfig.contacts.telegram !== '#' && (
+              <a href={siteConfig.contacts.telegram} class="contact-social-link" aria-label="Telegram" target="_blank" rel="noreferrer"><Icon name="telegram" /></a>
+            )}
+            {siteConfig.contacts.whatsapp && siteConfig.contacts.whatsapp !== '#' && (
+              <a href={siteConfig.contacts.whatsapp} class="contact-social-link" aria-label="WhatsApp" target="_blank" rel="noreferrer"><Icon name="whatsapp" /></a>
+            )}
+            {siteConfig.contacts.instagram && siteConfig.contacts.instagram !== '#' && (
+              <a href={siteConfig.contacts.instagram} class="contact-social-link" aria-label="Instagram" target="_blank" rel="noreferrer"><Icon name="instagram" /></a>
+            )}
+            {siteConfig.contacts.vk && siteConfig.contacts.vk !== '#' && (
+              <a href={siteConfig.contacts.vk} class="contact-social-link" aria-label="VK" target="_blank" rel="noreferrer"><Icon name="vk" /></a>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="reveal reveal-delay-2">
+        <form
+  id="contact-form"
+  class="flex flex-col gap-5"
+  novalidate
+  data-endpoint={siteConfig.forms.contactEndpoint}
+  data-source={siteConfig.forms.source}
+>
+          <TextField id="field-name" name="name" label="Имя" autocomplete="name" required placeholder="Ваше имя" error="Пожалуйста, укажите ваше имя" />
+          <PhoneField id="field-phone" name="phone" label="Телефон" required error="Пожалуйста, укажите ваш телефон" />
+          <TextField id="field-email" name="email" label="Email" type="email" autocomplete="email" placeholder="your@email.com" />
+          <CustomSelect id="field-type" name="project_type" label="Тип проекта" placeholder="Выберите направление" options={projectTypes} required error="Пожалуйста, выберите тип проекта" />
+          <DatePicker id="field-date" name="preferred_date" label="Предпочтительная дата" optionalLabel="(опционально)" />
+          <TextareaField id="field-comment" name="comment" label="Комментарий" rows={4} placeholder="Расскажите о задаче, пожеланиях и сроках..." />
+
+          <!-- Privacy -->
+          <div class="flex items-start gap-3">
+            <div class="relative mt-0.5 shrink-0">
+              <input
+                id="field-privacy"
+                name="privacy"
+                type="checkbox"
+                required
+                class="w-4 h-4 appearance-none border border-[var(--color-border)] bg-transparent checked:bg-[var(--color-fg)] checked:border-[var(--color-fg)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] cursor-pointer transition-colors duration-200"
+              />
+              <svg class="absolute inset-0 w-4 h-4 pointer-events-none opacity-0 privacy-check" viewBox="0 0 16 16" fill="none" stroke="var(--color-bg)" stroke-width="2" aria-hidden="true">
+                <polyline points="3,8 6,11 13,4"/>
+              </svg>
+            </div>
+            <label for="field-privacy" class="text-xs text-[var(--color-fg-muted)] leading-relaxed cursor-pointer">
+              Я согласен(а) с <a href={siteConfig.footer.privacyHref} class="underline hover:text-[var(--color-fg)] transition-colors duration-200">политикой конфиденциальности</a>
+            </label>
+          </div>
+          <p id="privacy-error" class="hidden text-xs text-red-500 -mt-3">Необходимо ваше согласие</p>
+
+          <Button type="submit" variant="submit" size="lg" fullWidth={true} id="submit-btn" class="mt-2">
+            <span id="btn-text">Отправить заявку</span>
+            <svg id="btn-spinner" class="hidden w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 0 10 10" stroke-linecap="round"/>
+            </svg>
+          </Button>
+
+          <!-- Honeypot: visually hidden from real users, invisible to screen readers -->
+          <input
+            type="text"
+            name="company"
+            autocomplete="off"
+            tabindex="-1"
+            aria-hidden="true"
+            style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"
+          />
+          <input type="hidden" name="page" />
+          <input type="hidden" name="source" />
+        </form>
+
+        <!-- Success state -->
+        <div id="form-success" class="hidden flex-col items-start gap-4 p-10 bg-[var(--color-bg-warm)] border border-[var(--color-border)]">
+          <div class="w-10 h-10 border border-[var(--color-accent)] flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-accent)" stroke-width="1.5">
+              <polyline points="2,8 6,12 14,4"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-light tracking-tight">Заявка принята</h3>
+          <p class="text-[var(--color-fg-muted)] text-sm leading-relaxed">
+            Мы свяжемся с вами в ближайшее время. Обычно отвечаем в течение одного рабочего дня.
+          </p>
+        </div>
+
+        <!-- Error state -->
+        <div id="form-error" class="hidden flex-col items-start gap-4 p-10 bg-[var(--color-bg-warm)] border border-red-500/30">
+          <div class="w-10 h-10 border border-red-500/40 flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="text-red-500">
+              <line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-light tracking-tight">Не удалось отправить</h3>
+          <p class="text-[var(--color-fg-muted)] text-sm leading-relaxed">
+            Не удалось отправить заявку. Попробуйте позже или напишите нам напрямую.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-direct {
+    max-width: 28rem;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--color-surface, var(--color-bg)) 70%, transparent);
+  }
+
+  .contact-direct-title {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-fg);
+  }
+
+  .contact-direct-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-direct-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: fit-content;
+    color: var(--color-fg-muted);
+    font-size: 0.92rem;
+    line-height: 1.45;
+    transition: color 180ms ease;
+  }
+
+  .contact-direct-link:hover,
+  .contact-direct-link:focus-visible {
+    outline: none;
+    color: var(--color-accent-dark);
+  }
+
+  :global([data-theme="dark"]) .contact-direct-link:hover,
+  :global([data-theme="dark"]) .contact-direct-link:focus-visible {
+    color: var(--color-accent);
+  }
+
+  .contact-direct-icon {
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 34%, var(--color-border));
+    border-radius: 999px;
+    color: var(--color-accent-dark);
+  }
+
+  :global([data-theme="dark"]) .contact-direct-icon { color: var(--color-accent); }
+
+  .contact-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.15rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .contact-social-link {
+    width: 2.45rem;
+    height: 2.45rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-fg-muted);
+    transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+  }
+
+  .contact-social-link:hover,
+  .contact-social-link:focus-visible {
+    outline: none;
+    border-color: var(--color-accent);
+    color: var(--color-accent-dark);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
+
+  :global([data-theme="dark"]) .contact-social-link:hover,
+  :global([data-theme="dark"]) .contact-social-link:focus-visible {
+    color: var(--color-accent);
+  }
+</style>
+
+<script>
+  function initContactForm() {
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    if (!form) return;
+    if (form.dataset.formReady === 'true') return;
+    form.dataset.formReady = 'true';
+
+    const successEl = document.getElementById('form-success');
+    const errorEl = document.getElementById('form-error');
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const privacyError = document.getElementById('privacy-error');
+    const privacyCheck = document.getElementById('field-privacy') as HTMLInputElement | null;
+    if (!privacyCheck) return;
+
+    // populate hidden fields on init
+    const pageInput = form.querySelector<HTMLInputElement>('[name="page"]');
+    const sourceInput = form.querySelector<HTMLInputElement>('[name="source"]');
+    if (pageInput) pageInput.value = window.location.pathname;
+    if (sourceInput) sourceInput.value = form.dataset.source ?? '';
+
+    privacyCheck.addEventListener('change', () => {
+      const checkmark = privacyCheck.nextElementSibling as SVGElement;
+      if (checkmark) checkmark.style.opacity = privacyCheck.checked ? '1' : '0';
+    });
+
+    function setLoading(loading: boolean) {
+      if (!submitBtn) return;
+      submitBtn.disabled = loading;
+      if (btnText) btnText.textContent = loading ? 'Отправляем...' : 'Отправить заявку';
+      if (loading) btnSpinner?.classList.remove('hidden');
+      else btnSpinner?.classList.add('hidden');
+    }
+
+    function isValidEmail(value: string): boolean {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+    }
+
+    function isValidPhone(value: string): boolean {
+      const digits = value.replace(/\D/g, '');
+      // Russian: starts with 7 or 8, total 11 digits; or starts with +7, total 11 digits
+      return /^[78]\d{10}$/.test(digits);
+    }
+
+    const f = form;
+
+    function setFieldError(field: HTMLInputElement | HTMLSelectElement, message: string) {
+      const controlEl = f.querySelector<HTMLElement>(`[data-custom-control-for="${field.id}"]`);
+      const errEl = field.closest('.form-field')?.querySelector('.field-error') as HTMLElement | null;
+      if (controlEl) controlEl.style.borderColor = '#ef4444';
+      else (field as HTMLElement).style.borderColor = '#ef4444';
+      if (errEl) {
+        errEl.textContent = message;
+        errEl.classList.remove('hidden');
+      }
+    }
+
+    function clearFieldError(field: HTMLInputElement | HTMLSelectElement) {
+      const controlEl = f.querySelector<HTMLElement>(`[data-custom-control-for="${field.id}"]`);
+      const errEl = field.closest('.form-field')?.querySelector('.field-error') as HTMLElement | null;
+      if (controlEl) controlEl.style.borderColor = '';
+      else (field as HTMLElement).style.borderColor = '';
+      if (errEl) errEl.classList.add('hidden');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // reset error block
+      errorEl?.classList.remove('flex');
+      errorEl?.classList.add('hidden');
+
+      let valid = true;
+
+      form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]').forEach((field) => {
+        const isEmpty = !field.value.trim() || (field.tagName === 'SELECT' && !field.value);
+        if (isEmpty) {
+          valid = false;
+          setFieldError(field, field.dataset.errorEmpty ?? 'Обязательное поле');
+        } else {
+          clearFieldError(field);
+        }
+      });
+
+      // email format validation (optional field — only if filled)
+      const emailField = form.querySelector<HTMLInputElement>('[name="email"]');
+      if (emailField && emailField.value.trim() && !isValidEmail(emailField.value)) {
+        valid = false;
+        setFieldError(emailField, 'Введите корректный email, например: user@example.com');
+      }
+
+      // phone format validation (required field — validate format after empty check)
+      const phoneField = form.querySelector<HTMLInputElement>('[name="phone"]');
+      if (phoneField && phoneField.value.trim() && !isValidPhone(phoneField.value)) {
+        valid = false;
+        setFieldError(phoneField, 'Введите российский номер: +7 900 000-00-00');
+      }
+
+      if (!privacyCheck.checked) {
+        valid = false;
+        privacyError?.classList.remove('hidden');
+      } else {
+        privacyError?.classList.add('hidden');
+      }
+
+      if (!valid) return;
+
+      const endpoint = form.dataset.endpoint ?? '/.netlify/functions/contact';
+      const formData = new FormData(form);
+
+      const payload = {
+        name: (formData.get('name') as string | null) ?? '',
+        phone: (formData.get('phone') as string | null) ?? '',
+        email: (formData.get('email') as string | null) ?? '',
+        service:
+          (formData.get('service') as string | null) ||
+          (formData.get('project_type') as string | null) ||
+          (formData.get('menu_item') as string | null) ||
+          (formData.get('reservation_type') as string | null) ||
+          '',
+        message:
+          (formData.get('message') as string | null) ||
+          (formData.get('comment') as string | null) ||
+          '',
+        date:
+          (formData.get('preferred_date') as string | null) ||
+          (formData.get('date') as string | null) ||
+          '',
+        time: (formData.get('time') as string | null) ?? '',
+        page: window.location.pathname,
+        source: form.dataset.source ?? '',
+        company: (formData.get('company') as string | null) ?? '',
+      };
+
+      setLoading(true);
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json().catch(() => ({ ok: false }));
+
+        if (res.ok && (data as { ok: boolean }).ok) {
+          setLoading(false);
+          form.style.display = 'none';
+          if (successEl) {
+            successEl.classList.remove('hidden');
+            successEl.classList.add('flex');
+          }
+          form.reset();
+        } else {
+          errorEl?.classList.remove('hidden');
+          errorEl?.classList.add('flex');
+          setLoading(false);
+        }
+      } catch {
+        errorEl?.classList.remove('hidden');
+        errorEl?.classList.add('flex');
+        setLoading(false);
+      }
+    });
+
+    form.querySelectorAll('input, select, textarea').forEach((field) => {
+      field.addEventListener('input', () => {
+        (field as HTMLElement).style.borderColor = '';
+        const controlEl = form.querySelector<HTMLElement>(`[data-custom-control-for="${(field as HTMLInputElement).id}"]`);
+        if (controlEl) controlEl.style.borderColor = '';
+        const errEl = field.closest('.form-field')?.querySelector('.field-error') as HTMLElement | null;
+        if (errEl) errEl.classList.add('hidden');
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactForm, { once: true });
+  } else {
+    initContactForm();
+  }
+  document.addEventListener('astro:page-load', initContactForm);
+</script>
