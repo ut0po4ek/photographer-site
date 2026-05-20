@@ -1,0 +1,99 @@
+---
+const photos = [
+  {
+    src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1000&q=80',
+    alt: 'Портрет девушки в чёрно-белом стиле',
+    wide: true,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?w=600&q=80',
+    alt: 'Love story съёмка',
+    wide: false,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&q=80',
+    alt: 'Семейная фотосессия',
+    wide: false,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80',
+    alt: 'Рабочий момент на съёмке',
+    wide: false,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&q=80',
+    alt: 'Портрет для личного бренда',
+    wide: false,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1504703395950-b89145a5425b?w=600&q=80',
+    alt: 'Детская фотосессия',
+    wide: false,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1000&q=80',
+    alt: 'Свадебная съёмка в чёрно-белом',
+    wide: true,
+  },
+];
+
+const heroPhoto = photos[0];
+const gridPhotos = photos.slice(1, 5);
+const bottomPhotos = photos.slice(5);
+---
+
+<section id="portfolio" class="section-dark section-padding">
+  <div class="container-site">
+
+    <h2
+      class="mb-14 md:mb-20"
+      style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; letter-spacing: -0.01em; color: #f4f4f0;"
+    >
+      Результаты работы
+    </h2>
+
+    <!-- Hero photo — full width -->
+    <div class="w-full overflow-hidden mb-2" style="aspect-ratio: 16/7; max-height: 520px;">
+      <img
+        src={heroPhoto.src}
+        alt={heroPhoto.alt}
+        class="w-full h-full object-cover"
+        style="filter: grayscale(1);"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- 4-column grid of smaller photos -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2">
+      {gridPhotos.map((photo) => (
+        <div class="overflow-hidden" style="aspect-ratio: 1/1;">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full h-full object-cover"
+            style="filter: grayscale(1);"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom: wide photo -->
+    {bottomPhotos.length > 0 && (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+        {bottomPhotos.map((photo) => (
+          <div class="overflow-hidden" style="aspect-ratio: 4/3;">
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              class="w-full h-full object-cover"
+              style="filter: grayscale(1);"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    )}
+
+  </div>
+</section>

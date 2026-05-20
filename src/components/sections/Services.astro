@@ -1,63 +1,113 @@
 ---
 const services = [
   {
-    number: '01',
-    title: 'Консультация',
-    description: 'Помогаем разобраться в задаче, выбрать подход и оценить объём работ.',
-    features: ['Анализ задачи', 'Формат работы', 'Оценка сроков', 'Рекомендации'],
+    title: 'Портретная съёмка',
+    price: 'от 6 000 ₽',
+    duration: '1 час',
+    photos: '20 обработанных фото',
+    desc: 'Помощь с позированием, выбор локации, индивидуальный подход.',
+    img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80',
   },
   {
-    number: '02',
-    title: 'Разработка',
-    description: 'Реализуем решение под ваши требования, сроки и бюджет.',
-    features: ['Концепция', 'Реализация', 'Контроль качества', 'Документация'],
+    title: 'Семейная и детская съёмка',
+    price: 'от 7 000 ₽',
+    duration: '1.5–2 часа',
+    photos: '30 обработанных фото',
+    desc: 'Тёплая прогулка или домашняя съёмка для всей семьи.',
+    img: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=400&q=80',
   },
   {
-    number: '03',
-    title: 'Сопровождение',
-    description: 'Поддерживаем результат после запуска, оперативно решаем вопросы.',
-    features: ['Поддержка', 'Доработки', 'Консультации', 'Развитие'],
+    title: 'Love Story',
+    price: 'от 8 000 ₽',
+    duration: '1–1.5 часа',
+    photos: '25 обработанных фото',
+    desc: 'История пары в естественном стиле без постановочной искусственности.',
+    img: 'https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?w=400&q=80',
+  },
+  {
+    title: 'Контентная съёмка',
+    price: 'от 7 000 ₽',
+    duration: '1 час',
+    photos: '20 обработанных фото',
+    desc: 'Портреты для экспертов, блогов и личного бренда.',
+    img: 'https://images.unsplash.com/photo-1504703395950-b89145a5425b?w=400&q=80',
   },
 ];
 ---
 
-<section id="services" class="section-padding bg-[var(--color-bg)]">
+<section id="services" class="section-dark section-padding">
   <div class="container-site">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14 md:mb-20">
-      <div>
-        <span class="label-tag reveal">Что мы делаем</span>
-        <div class="divider my-4 reveal reveal-delay-1"></div>
-        <h2 class="mt-6 reveal reveal-delay-2" style="font-size: clamp(1.5rem, 3.5vw, 2.75rem); font-weight: 300; letter-spacing: -0.02em;">
-          Услуги
-        </h2>
-      </div>
-      <p class="text-[var(--color-fg-muted)] text-sm max-w-xs leading-relaxed reveal reveal-delay-2">
-        Замените этот текст на описание ваших услуг и их ценности для клиентов.
-      </p>
-    </div>
 
-    <div class="flex flex-col divide-y divide-[var(--color-border)]">
-      {services.map((service, i) => (
+    <h2
+      class="mb-14 md:mb-20"
+      style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; letter-spacing: -0.01em; color: #f4f4f0;"
+    >
+      Услуги
+    </h2>
+
+    <div class="flex flex-col">
+      {services.map((service) => (
         <div
-          class={`reveal reveal-delay-${i + 1} group grid grid-cols-1 md:grid-cols-[4rem_1fr] gap-6 md:gap-12 py-10 md:py-12 transition-colors duration-300 hover:bg-[var(--color-bg-warm)] -mx-6 px-6 md:-mx-10 md:px-10`}
+          class="service-row grid grid-cols-1 md:grid-cols-[280px_1fr] gap-0 border-t"
+          style="border-color: rgba(244,244,240,0.10);"
         >
-          <div>
-            <span class="label-tag text-[var(--color-accent)]">{service.number}</span>
+          <!-- Photo -->
+          <div class="service-photo overflow-hidden" style="aspect-ratio: 4/3; max-height: 220px;">
+            <img
+              src={service.img}
+              alt={service.title}
+              class="w-full h-full object-cover"
+              style="filter: grayscale(1);"
+              loading="lazy"
+            />
           </div>
 
-          <div>
-            <h3 class="text-xl md:text-2xl font-light tracking-tight mb-3">{service.title}</h3>
-            <p class="text-[var(--color-fg-muted)] text-sm leading-relaxed mb-5 max-w-lg">{service.description}</p>
-            <ul class="flex flex-wrap gap-2">
-              {service.features.map((detail) => (
-                <li class="text-xs text-[var(--color-fg-muted)] border border-[var(--color-border)] px-3 py-1 rounded-full">
-                  {detail}
-                </li>
-              ))}
-            </ul>
+          <!-- Text content -->
+          <div class="flex flex-col justify-between p-6 md:p-8 md:pl-10">
+            <div>
+              <h3 class="mb-3 text-lg font-light tracking-tight" style="color: #f4f4f0;">{service.title}</h3>
+              <div class="flex flex-wrap gap-x-6 gap-y-1 mb-4">
+                <span class="text-xs tracking-wide" style="color: rgba(244,244,240,0.45); letter-spacing: 0.08em;">
+                  {service.duration}
+                </span>
+                <span class="text-xs tracking-wide" style="color: rgba(244,244,240,0.45); letter-spacing: 0.08em;">
+                  {service.photos}
+                </span>
+              </div>
+              <p class="text-sm leading-relaxed mb-6" style="color: rgba(244,244,240,0.55); max-width: 36ch;">
+                {service.desc}
+              </p>
+            </div>
+            <div class="flex items-center justify-between flex-wrap gap-4">
+              <p
+                style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.75rem; font-weight: 300; color: #f4f4f0; letter-spacing: -0.01em;"
+              >
+                {service.price}
+              </p>
+              <a
+                href="/#contacts"
+                class="inline-flex items-center px-5 py-2.5 text-xs font-medium tracking-[0.14em] uppercase"
+                style="border: 1px solid rgba(244,244,240,0.30); color: rgba(244,244,240,0.80); transition: border-color 200ms ease, color 200ms ease;"
+                onmouseover="this.style.borderColor='rgba(244,244,240,0.80)';this.style.color='#f4f4f0';"
+                onmouseout="this.style.borderColor='rgba(244,244,240,0.30)';this.style.color='rgba(244,244,240,0.80)';"
+              >
+                Записаться
+              </a>
+            </div>
           </div>
         </div>
       ))}
+      <!-- Bottom border -->
+      <div style="border-top: 1px solid rgba(244,244,240,0.10);"></div>
     </div>
+
   </div>
 </section>
+
+<style>
+  @media (max-width: 767px) {
+    .service-photo {
+      max-height: 180px;
+    }
+  }
+</style>
