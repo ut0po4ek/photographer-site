@@ -13,7 +13,7 @@ export const siteConfig = {
     telegram: 'https://t.me/example',
     whatsapp: 'https://wa.me/79999999999',
     instagram: 'https://instagram.com/example',
-    max: '',
+    max: 'https://max.ru/example',
   },
 
   nav: [

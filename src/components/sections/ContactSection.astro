@@ -5,7 +5,6 @@ import PhoneField from '../ui/PhoneField.astro';
 import CustomSelect from '../ui/CustomSelect.astro';
 import TextareaField from '../ui/TextareaField.astro';
 import Icon from '../ui/Icon.astro';
-import IconMax from '../ui/IconMax.astro';
 import { siteConfig } from '../../config/site';
 
 const shootTypes = [
@@ -49,7 +48,7 @@ const shootTypes = [
           </a>
           {siteConfig.contacts.max && (
             <a href={siteConfig.contacts.max} class="contact-link flex items-center gap-4" target="_blank" rel="noreferrer" aria-label="Max">
-              <span class="contact-icon"><IconMax variant="white" size={18} /></span>
+              <span class="contact-icon"><Icon name="max" size={18} /></span>
               <span>Max</span>
             </a>
           )}

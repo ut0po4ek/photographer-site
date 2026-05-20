@@ -1,7 +1,6 @@
 ---
 import { siteConfig } from '../../config/site';
 import Icon from '../ui/Icon.astro';
-import IconMax from '../ui/IconMax.astro';
 ---
 
 <footer style="background: #0d0d0d;">
@@ -29,7 +28,8 @@ import IconMax from '../ui/IconMax.astro';
         {siteConfig.contacts.telegram && <a href={siteConfig.contacts.telegram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Telegram"><Icon name="telegram" size={17} /></a>}
         {siteConfig.contacts.whatsapp && <a href={siteConfig.contacts.whatsapp} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="WhatsApp"><Icon name="whatsapp" size={17} /></a>}
         {siteConfig.contacts.instagram && <a href={siteConfig.contacts.instagram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Instagram"><Icon name="instagram" size={17} /></a>}
-        {siteConfig.contacts.max && <a href={siteConfig.contacts.max} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Max"><IconMax variant="white" size={17} /></a>}
+        {siteConfig.contacts.max && <a href={siteConfig.contacts.max} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Max"><Icon name="max" size={17} /></a>}
+        {siteConfig.contacts.email && <a href={`mailto:${siteConfig.contacts.email}`} class="footer-social-icon" aria-label="Email"><Icon name="email" size={17} /></a>}
       </div>
     </div>
 
