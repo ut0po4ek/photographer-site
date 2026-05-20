@@ -1,0 +1,67 @@
+---
+const reasons = [
+  {
+    number: '/01',
+    title: 'Индивидуальный подход',
+    desc: 'Помогаю расслабиться в кадре и подбираю формат съёмки под вашу историю.',
+  },
+  {
+    number: '/02',
+    title: 'Естественные эмоции',
+    desc: 'Не заставляю позировать искусственно — ловлю живые моменты.',
+  },
+  {
+    number: '/03',
+    title: 'Спокойная обработка',
+    desc: 'Чистый чёрно-белый стиль без перегруза и модных фильтров.',
+  },
+  {
+    number: '/04',
+    title: 'Быстрая отдача',
+    desc: 'Первые кадры — в течение нескольких дней после съёмки.',
+  },
+];
+---
+
+<section id="why" class="section-light section-padding" style="border-top: 1px solid var(--color-border);">
+  <div class="container-site">
+
+    <h2
+      class="mb-14 md:mb-20"
+      style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.05;"
+    >
+      Почему я?
+    </h2>
+
+    <div class="flex flex-col">
+      {reasons.map((item) => (
+        <div
+          class="flex items-baseline gap-6 md:gap-10 py-7 border-b"
+          style="border-color: var(--color-border);"
+        >
+          <!-- Number /01 style -->
+          <span
+            style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; color: var(--color-fg-subtle); white-space: nowrap; min-width: 2.5rem;"
+          >
+            {item.number}
+          </span>
+          <!-- Title -->
+          <span
+            class="font-medium text-sm md:text-base tracking-wide"
+            style="color: var(--color-fg); min-width: 12rem; flex-shrink: 0;"
+          >
+            {item.title}
+          </span>
+          <!-- Description -->
+          <p
+            class="text-sm leading-relaxed hidden sm:block"
+            style="color: var(--color-fg-muted); max-width: 40ch;"
+          >
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
