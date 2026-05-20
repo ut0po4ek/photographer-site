@@ -24,10 +24,11 @@ import Icon from '../ui/Icon.astro';
         </p>
       </div>
 
-      <div class="flex gap-4" style="color: rgba(244,244,240,0.38);">
-        <a href={siteConfig.contacts.telegram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Telegram"><Icon name="telegram" size={18} /></a>
-        <a href={siteConfig.contacts.whatsapp} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="WhatsApp"><Icon name="whatsapp" size={18} /></a>
-        <a href={siteConfig.contacts.instagram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Instagram"><Icon name="instagram" size={18} /></a>
+      <div class="flex gap-3">
+        {siteConfig.contacts.telegram && <a href={siteConfig.contacts.telegram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Telegram"><Icon name="telegram" size={17} /></a>}
+        {siteConfig.contacts.whatsapp && <a href={siteConfig.contacts.whatsapp} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="WhatsApp"><Icon name="whatsapp" size={17} /></a>}
+        {siteConfig.contacts.instagram && <a href={siteConfig.contacts.instagram} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Instagram"><Icon name="instagram" size={17} /></a>}
+        {siteConfig.contacts.max && <a href={siteConfig.contacts.max} class="footer-social-icon" target="_blank" rel="noreferrer" aria-label="Max"><Icon name="max" size={17} /></a>}
       </div>
     </div>
 
@@ -50,12 +51,20 @@ import Icon from '../ui/Icon.astro';
 
 <style>
   .footer-social-icon {
-    color: rgba(244, 244, 240, 0.38);
+    width: 2.25rem;
+    height: 2.25rem;
     display: inline-flex;
-    transition: color 200ms ease;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(244, 244, 240, 0.15);
+    border-radius: 50%;
+    color: rgba(244, 244, 240, 0.45);
+    transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease;
   }
   .footer-social-icon:hover {
-    color: rgba(244, 244, 240, 0.80);
+    border-color: rgba(244, 244, 240, 0.55);
+    color: #f4f4f0;
+    background-color: rgba(244, 244, 240, 0.06);
   }
   .footer-social {
     transition: color 200ms ease;
